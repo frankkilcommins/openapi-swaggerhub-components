@@ -1,0 +1,149 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "ErrorResponses",
+    "description" : "Common Error Responses that we expect to be supported by the majority of APIs\n",
+    "version" : "1.0.0"
+  },
+  "components" : {
+    "responses" : {
+      "400BadRequest" : {
+        "description" : "400 Bad Request",
+        "content" : {
+          "application/problem+json" : {
+            "schema" : {
+              "$ref" : "https://api.swaggerhub.com/domains/frank-kilcommins/Problem/1.0.0#/components/schemas/Problem"
+            }
+          }
+        }
+      },
+      "401Unauthorized" : {
+        "description" : "401 Unauthorized",
+        "content" : {
+          "application/problem+json" : {
+            "schema" : {
+              "$ref" : "https://api.swaggerhub.com/domains/frank-kilcommins/Problem/1.0.0#/components/schemas/Problem"
+            }
+          }
+        }
+      },
+      "403Forbidden" : {
+        "description" : "403 Forbidden",
+        "content" : {
+          "application/problem+json" : {
+            "schema" : {
+              "$ref" : "https://api.swaggerhub.com/domains/frank-kilcommins/Problem/1.0.0#/components/schemas/Problem"
+            }
+          }
+        }
+      },
+      "404NotFound" : {
+        "description" : "404 Not Found",
+        "content" : {
+          "application/problem+json" : {
+            "schema" : {
+              "$ref" : "https://api.swaggerhub.com/domains/frank-kilcommins/Problem/1.0.0#/components/schemas/Problem"
+            }
+          }
+        }
+      },
+      "405MethodNotAllowed" : {
+        "description" : "405 Method Not Allowed",
+        "content" : {
+          "application/problem+json" : {
+            "schema" : {
+              "$ref" : "https://api.swaggerhub.com/domains/frank-kilcommins/Problem/1.0.0#/components/schemas/Problem"
+            }
+          }
+        }
+      },
+      "500InternalServerError" : {
+        "description" : "500 Internal Server Error",
+        "content" : {
+          "application/problem+json" : {
+            "schema" : {
+              "$ref" : "https://api.swaggerhub.com/domains/frank-kilcommins/Problem/1.0.0#/components/schemas/Problem"
+            }
+          }
+        }
+      },
+      "503ServiceUnvailable" : {
+        "description" : "503 Service Unavailable",
+        "content" : {
+          "application/problem+json" : {
+            "schema" : {
+              "$ref" : "https://api.swaggerhub.com/domains/frank-kilcommins/Problem/1.0.0#/components/schemas/Problem"
+            }
+          }
+        }
+      }
+    },
+    "examples" : {
+      "400Response-Missing-Body-Propeerty" : {
+        "description" : "representation of a 400 Bad Request response if a request omitted a required body property",
+        "value" : {
+          "code" : "400400",
+          "status" : 400,
+          "type" : "https://www.apifrank.com/problems/missing-body-property",
+          "title" : "missing-body-property",
+          "details" : [ {
+            "type" : "https://www.apifrank.com/problems/missing-body-property",
+            "title" : "missing-body-property",
+            "detail" : "Your request does not contain the required property 'name'",
+            "contextData" : [ {
+              "path" : "/contact/name"
+            } ]
+          } ]
+        }
+      },
+      "400Response-Invalid-Body-Property-Format" : {
+        "description" : "representation of a 400 Bad Request response if an incoming body parameter has an incorrect format",
+        "value" : {
+          "code" : "400401",
+          "type" : "https://www.apifrank.com/problems/invalid-body-property-format",
+          "title" : "invalid-body-property-format",
+          "details" : [ {
+            "type" : "https://www.apifrank.com/problems/invalid-body-property-format",
+            "title" : "invalid-body-property-format",
+            "detail" : "Your provided value [05-08-2021] for the property '/contact/dateOfBirth' does not the expected date format [yyyy-mm-dd]",
+            "contextData" : [ {
+              "path" : "/contact/dateOfBirth",
+              "providedValue" : "05-08-2021",
+              "allowedFormat" : "^{0-9}{4}-{0-9}{2}-{0-9}{2}Z$"
+            } ]
+          } ]
+        }
+      },
+      "400Response-Business-Rule-Violation" : {
+        "description" : "representation of a 400 Bad Request response if an incoming body parameter has an incorrect format",
+        "value" : {
+          "code" : "400402",
+          "type" : "https://www.apifrank.com/problems/business-rule-violation",
+          "title" : "invalid-body-property-format",
+          "details" : [ {
+            "type" : "https://www.apifrank.com/problems/business-rule-violation",
+            "title" : "business-rule-violation",
+            "detail" : "Your provided value [05-08-2021] for the property '/contact/dateOfBirth' does is not allowed. Contacts added to this resource must be over the age of 18 years",
+            "contextData" : [ {
+              "path" : "/contact/dateOfBirth",
+              "providedValue" : "05-08-2021",
+              "condition" : "The supplied date of birth will only be accepted if the contact is over 18 years of age."
+            } ]
+          } ]
+        }
+      },
+      "404Response" : {
+        "description" : "representation of a 404 Not found response to a request for a resource that does not exist",
+        "value" : {
+          "code" : "404000",
+          "type" : "https://www.apifrank.com/problems/not-found",
+          "title" : "not-found",
+          "instance" : "/products/pac1234",
+          "details" : [ {
+            "detail" : "Your requested resource [/products/pac1234] cannot be found"
+          } ]
+        }
+      }
+    }
+  }
+}
