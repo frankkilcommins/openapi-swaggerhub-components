@@ -13,6 +13,17 @@
           "application/problem+json" : {
             "schema" : {
               "$ref" : "https://api.swaggerhub.com/domains/frank-kilcommins/Problem/1.0.0#/components/schemas/Problem"
+            },
+            "examples" : {
+              "missing-body-property" : {
+                "$ref" : "#/components/examples/400Response-Missing-Body-Property"
+              },
+              "invalid-body-property-format" : {
+                "$ref" : "#/components/examples/400Response-Invalid-Body-Property-Format"
+              },
+              "business-rule-violation" : {
+                "$ref" : "#/components/examples/400Response-Business-Rule-Violation"
+              }
             }
           }
         }
@@ -43,6 +54,11 @@
           "application/problem+json" : {
             "schema" : {
               "$ref" : "https://api.swaggerhub.com/domains/frank-kilcommins/Problem/1.0.0#/components/schemas/Problem"
+            },
+            "examples" : {
+              "not-found" : {
+                "$ref" : "#/components/examples/404Response"
+              }
             }
           }
         }
@@ -79,7 +95,7 @@
       }
     },
     "examples" : {
-      "400Response-Missing-Body-Propeerty" : {
+      "400Response-Missing-Body-Property" : {
         "description" : "representation of a 400 Bad Request response if a request omitted a required body property",
         "value" : {
           "code" : "400400",
