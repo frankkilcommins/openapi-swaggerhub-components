@@ -91,37 +91,6 @@
         },
         "required" : [ "code", "status", "type", "title" ]
       }
-    },
-    "examples" : {
-      "400Response" : {
-        "description" : "representation of a 400 Bad Request response if a request omitted a required body property",
-        "value" : {
-          "code" : "400400",
-          "status" : 400,
-          "type" : "https://www.apifrank.com/problems/missing-body-property",
-          "title" : "missing-body-property",
-          "details" : [ {
-            "type" : "https://www.apifrank.com/problems/missing-body-property",
-            "title" : "missing-body-property",
-            "detail" : "Your request does not contain the required property 'name'",
-            "contextData" : [ {
-              "path" : "/contact/name"
-            } ]
-          } ]
-        }
-      },
-      "404Response" : {
-        "description" : "representation of a 404 Not found response to a request for a resource that does not exist",
-        "value" : {
-          "code" : "400404",
-          "type" : "https://www.apifrank.com/problems/not-found",
-          "title" : "not-found",
-          "instance" : "/products/pac1234",
-          "details" : [ {
-            "detail" : "Your requested resource [/products/pac1234] cannot be found"
-          } ]
-        }
-      }
     }
   }
 }
